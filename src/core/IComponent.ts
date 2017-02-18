@@ -3,6 +3,7 @@ export interface Component {
     controller?: any;
     properties?: string[];
     template: string;
+    $element?: Element;
 
     init?();
 }

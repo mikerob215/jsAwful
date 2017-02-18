@@ -1,12 +1,24 @@
 import {Component} from "../core/IComponent";
+import {core} from "../core/utils";
 
-export class Subcomponent implements Component {
+function ComponentOptions(constructorFn: Function) {
+    constructorFn.prototype.poop = "fuuuuuck";
+}
+@ComponentOptions
+
+export class SubComponent implements Component {
     public text: string;
-    properties: any = ['test'];
-    template: string = '{{ test }}';
-    selector: string = 'sub';
+    properties: any = ['test', 'poop'];
+    template = `{{ test }} {{ test }} {{ test }}`;
+    selector = 'sub';
+    public $element;
+
 
     constructor() {
-        // console.log(this)
+        setTimeout(() => {
+            this['test'] = 'sdfsd';
+            this['poop'] = 'string';
+            core.compile(this, this.$element);
+        }, 1000);
     }
 }

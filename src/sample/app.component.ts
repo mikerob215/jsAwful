@@ -1,11 +1,14 @@
 import {Component} from "../core/IComponent";
-export class AppComponent implements Component {
-    constructor() {
 
-    }
+export class AppComponent implements Component {
     public selector =  'app';
-    public template = `gigigigg
+    properties = ['test'];
+    public test = "something man";
+    public template = `
     <br>
-    <sub test="'hi'"></sub>
+    {{test}}
+    <sub test="'hey'"></sub>
+    <sub test="'wtf'"></sub>
     `;
+
 }
